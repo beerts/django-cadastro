@@ -1,0 +1,27 @@
+{% extends 'usuarios/base.html' %}
+{% block conteudo %}
+<body style="background-color: rgb(7, 2, 29)";>
+    <div class="container" style="border: 20px black;">
+        <br>
+        <h1 style="color: white">CADASTROS</h1>
+        <table class="table table-border">
+            <br>
+            <br>
+            <tr>
+                <th style="font-size:20px; text-decoration: underline;color: white">NOME:</th>
+                <th style="font-size:20px; text-decoration: underline;color: white">EMAIL:</th>
+                <th style="font-size:20px; text-decoration: underline;color: white">SENHA:</th>
+            
+            {% for usuario in usuarios %}
+            <tr>
+                <td style="color: white;">{{usuario.nome}}</td>
+                <td style="color: white"> {{usuario.email}}</td>
+                <td style="color: white"> {{usuario.senha}}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+</div>
+</body>
+{% endblock %}
+

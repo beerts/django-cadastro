@@ -1,0 +1,186 @@
+{% extends 'usuarios/base.html' %}
+{% load static %}
+{% block conteudo %}
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+    div{
+    text-align: center
+}
+
+    span{
+    font-size:20px
+}
+
+    *{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+}
+
+section{
+    display: flex;
+    justify-content: center; 
+    min-height: 100vh;
+    width: 100%;
+    padding-top: 50px;
+}
+
+.form-box{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    border: 2px solid #02084830;
+    background:linear-gradient(rgba(0, 0, 0, 0.084), rgba(0, 0, 0, 0.173));
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+h2{
+    font-size: 3em;
+    color: #17133b;
+    padding-bottom: 20px;
+}
+
+h5{
+    color: white;
+    text-align: left;
+}
+
+
+.inputbox{
+    position: relative;
+    margin: 30px 0;
+    width: 310px;
+    border-bottom: 2px solid #fff;
+}
+.inputbox label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #ffffff82;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
+}
+input:focus ~ label,
+input:valid ~ label{
+top: -5px;
+}
+.inputbox input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding:0 35px 0 5px;
+    color: #f8f8f8
+}
+.inputbox ion-icon{
+    position: absolute;
+    right: 8px;
+    color: #fff;
+    font-size: 1.2em;
+    top: 20px;
+}
+.causa{
+    margin: -15px 0 15px ;
+    font-size: 1em;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background: #fff;
+    border: 2px solid black;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+}
+.cadastrar{
+    font-size: .9em;
+    color: #17133b;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+.cadastrar:hover{
+    background-color: #17133b;
+    transition: 0.7s;
+    color: #ffffff;
+  
+}
+.cadastrar p a{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+}
+.cadastrar p a:hover{
+    text-decoration: underline;
+}
+
+body{
+    background: url('{% static "img/fundo3.jpg" %}');
+
+}
+
+footer{
+    color: white;
+    opacity: 0.5;
+}
+
+</style>
+<body>
+    <section>
+        <div>
+        <div class="form-box">
+            <div class="form-value">
+                <h2>Cadastro</h2>
+                <form action="{% url 'listagem_usuarios' %}" method="post">
+                    {% csrf_token %}
+                    <div class="inputbox">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <input name="nome" type="text" class="form-control-sm" required>
+                        <label for="">Nome</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input name="email" type="email" class="form-control-sm"  required>
+                        <label for="">Email</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input name="senha" type="password" class="form-control-sm"  required>
+                        <label for="">Senha</label>
+                        </div>
+                    
+                    <button class="cadastrar">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+<footer>
+    <ul class="flex justify-between items-center">
+
+         <h6>Bernardo Teixeira  &copy; 2023 </h6>
+         <h6>Feito com Django, HTML e CSS</h6>
+         
+
+    </ul>
+</footer>
+</html>
+{% endblock %}
